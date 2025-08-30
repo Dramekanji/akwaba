@@ -1238,15 +1238,6 @@ video {
   --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.snap-y {
-  scroll-snap-type: y var(--tw-scroll-snap-strictness);
-}
-.snap-mandatory {
-  --tw-scroll-snap-strictness: mandatory;
-}
-.snap-start {
-  scroll-snap-align: start;
-}
 .snap-end {
   scroll-snap-align: end;
 }
@@ -1477,8 +1468,8 @@ video {
 .pt-24 {
   padding-top: 6rem;
 }
-.pt-36 {
-  padding-top: 9rem;
+.pt-28 {
+  padding-top: 7rem;
 }
 .text-left {
   text-align: left;
@@ -1798,6 +1789,18 @@ video {
     max-width: 48rem;
   }
 
+  .md\:snap-y {
+    scroll-snap-type: y var(--tw-scroll-snap-strictness);
+  }
+
+  .md\:snap-mandatory {
+    --tw-scroll-snap-strictness: mandatory;
+  }
+
+  .md\:snap-start {
+    scroll-snap-align: start;
+  }
+
   .md\:scroll-mt-36 {
     scroll-margin-top: 9rem;
   }
@@ -1832,8 +1835,8 @@ video {
     padding-top: 0px;
   }
 
-  .md\:pt-20 {
-    padding-top: 5rem;
+  .md\:pt-14 {
+    padding-top: 3.5rem;
   }
 
   .md\:pt-28 {

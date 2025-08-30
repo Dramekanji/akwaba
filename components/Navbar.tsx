@@ -103,7 +103,7 @@ export default function Navbar() {
               />
               <div className="hidden sm:block leading-tight">
                 <div className="font-extrabold text-primary tracking-wide">
-                  AKWABA CONSTRUCTION
+                  AKOUABA GROUP
                 </div>
                 <div className="text-[11px] uppercase tracking-[0.2em] text-slate-500">
                   Ponts & Routes

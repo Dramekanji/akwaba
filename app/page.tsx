@@ -13,7 +13,7 @@ export default function Page() {
     alert("Merci ! Nous vous contacterons rapidement.");
   };
 
-  // Team data (swap images/names/roles as you like)
+  // Team data
   const team = [
     {
       name: "Aïcha Kouamé",
@@ -42,24 +42,15 @@ export default function Page() {
       role: "Cheffe de chantier",
       img: "/images/mariame.webp",
     },
-    {
-      name: "Yao N’Guessan",
-      role: "Dessinatrice",
-      img: "/images/yao.webp",
-    },
+    { name: "Yao N’Guessan", role: "Dessinatrice", img: "/images/yao.webp" },
   ];
 
-  /** Projects animations: parent staggers children; each card slides up and fades in */
+  /** Projects animations */
   const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
   const projectsContainer: Variants = {
     hidden: {},
-    visible: {
-      transition: {
-        delayChildren: 0.1,
-        staggerChildren: 0.25, // left -> right reveal
-      },
-    },
+    visible: { transition: { delayChildren: 0.1, staggerChildren: 0.25 } },
   };
 
   const projectCard: Variants = {
@@ -68,16 +59,20 @@ export default function Page() {
       opacity: 1,
       y: 0,
       scale: 1,
-      transition: { duration: 1.0, ease }, // deliberate but not slow
+      transition: { duration: 1.0, ease },
     },
   };
 
   return (
-    <main className="snap-y snap-mandatory overflow-y-auto h-screen">
+    // ⬇️ Snap only on md+ so mobile scrolls freely
+    <main className="md:snap-y md:snap-mandatory overflow-y-auto h-screen">
       <Navbar />
 
-      {/* Hero (keep as-is) */}
-      <section id="home" className="section snap-start relative bg-[#214f7a]">
+      {/* Hero */}
+      <section
+        id="home"
+        className="section md:snap-start relative bg-[#214f7a]"
+      >
         <div className="pointer-events-none absolute inset-0 opacity-10" />
         <div className="container pt-24 md:pt-28">
           <div className="grid items-center gap-10 md:grid-cols-12">
@@ -146,7 +141,7 @@ export default function Page() {
       </section>
 
       {/* About */}
-      <section id="about" className="section snap-start bg-white">
+      <section id="about" className="section md:snap-start bg-white">
         <div className="container 2xl:max-w-[1600px] grid items-center gap-10 lg:gap-16 xl:gap-24 md:grid-cols-12 pt-24 md:pt-0">
           <motion.div
             initial="hidden"
@@ -193,10 +188,10 @@ export default function Page() {
       {/* Services (tabs version) */}
       <section
         id="services"
-        className="section snap-start bg-primary scroll-mt-28 md:scroll-mt-36"
+        className="section md:snap-start bg-primary scroll-mt-28 md:scroll-mt-36"
       >
-        {/* Increased top padding on all breakpoints so the heading sits lower */}
-        <div className="container pt-36 md:pt-20">
+        {/* More top padding so the heading sits lower */}
+        <div className="container pt-28 md:pt-14">
           <motion.h2
             initial="hidden"
             whileInView="visible"
@@ -207,15 +202,14 @@ export default function Page() {
             Solutions que nous offrons
           </motion.h2>
 
-          {/* Drop-in tabs component you created */}
           <div className="mt-10">
             <ServicesTabs />
           </div>
         </div>
       </section>
 
-      {/* Projects — recentered, larger cards, staggered left→right animation */}
-      <section id="projects" className="section snap-start bg-white">
+      {/* Projects */}
+      <section id="projects" className="section md:snap-start bg-white">
         <div className="container pt-24 md:pt-0 2xl:max-w-[1600px]">
           <motion.h2
             initial="hidden"
@@ -275,7 +269,10 @@ export default function Page() {
       </section>
 
       {/* Meet the CEO – full-section blob background */}
-      <section id="ceo" className="section snap-start relative overflow-hidden">
+      <section
+        id="ceo"
+        className="section md:snap-start relative overflow-hidden"
+      >
         <div
           aria-hidden
           className="pointer-events-none absolute -inset-x-20 -inset-y-24 -z-10"
@@ -324,7 +321,7 @@ export default function Page() {
           <div className="grid items-center gap-10 md:grid-cols-12">
             <div className="md:col-span-3">
               <p className="uppercase tracking-widest text-slate-900">
-                PDG d'Akwaba
+                PDG d'AKOUABA GROUP
               </p>
               <h3 className="mt-3 text-2xl md:text-3xl italic font-medium text-slate-900">
                 Mr. Moussa Marena
@@ -351,23 +348,22 @@ export default function Page() {
             <div className="md:col-span-3">
               <h4 className="font-semibold text-slate-900">« Notre vision »</h4>
               <p className="mt-3 text-slate-700">
-                « Chez Akwaba Construction, nous bâtissons des ouvrages qui
-                servent les communautés pendant des décennies. Notre priorité
-                est simple : sécurité irréprochable, qualité mesurable et
-                respect des délais. Nous investissons dans l’ingénierie, la
-                formation et des contrôles rigoureux pour que chaque pont, route
-                et ouvrage d’art améliore durablement la mobilité et la vie
-                locale. »
+                « Chez Akouaba Group, nous bâtissons des ouvrages qui servent
+                les communautés pendant des décennies. Notre priorité est simple
+                : sécurité irréprochable, qualité mesurable et respect des
+                délais. Nous investissons dans l’ingénierie, la formation et des
+                contrôles rigoureux pour que chaque pont, route et ouvrage d’art
+                améliore durablement la mobilité et la vie locale. »
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team (L'Équipe) — gradient background */}
+      {/* Team */}
       <section
         id="team"
-        className="section snap-start"
+        className="section md:snap-start"
         style={{
           background:
             "linear-gradient(90deg, hsla(209, 57%, 30%, 1) 14%, hsla(338, 75%, 64%, 1) 72%, hsla(14, 92%, 86%, 1) 100%)",
@@ -422,7 +418,7 @@ export default function Page() {
       </section>
 
       {/* Quote */}
-      <section id="quote" className="section snap-start bg-slate-50">
+      <section id="quote" className="section md:snap-start bg-slate-50">
         <div className="container pt-24 md:pt-0">
           <motion.h2
             initial="hidden"
